@@ -1,0 +1,157 @@
+{% extends 'base.html' %}
+
+{% block title %}Add User{% endblock title %}
+
+{% block content %}
+<h1 class="mt-3">Add a new user</h1>
+
+<div class="col-sm-5 m-auto justify-center">
+    <form action="" method="POST">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <p>{{ message }}</p>
+            {% endif %}
+            {% endwith %}
+            <legend class="border-bottom mb-4">Submit a new user</legend>
+            <div class="form-group">
+                {{ form.user_id.label(class="form-control-label") }}
+                {{ form.user_id(class="form-control form-control-sm") }}
+                {% if form.user_id.errors %}
+                <ul>
+                    {% for error in form.user_id.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.first_name.label(class="form-control-label") }}
+                {{ form.first_name(class="form-control form-control-sm") }}
+                {% if form.first_name.errors %}
+                <ul>
+                    {% for error in form.first_name.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.last_name.label(class="form-control-label") }}
+                {{ form.last_name(class="form-control form-control-sm") }}
+                {% if form.last_name.errors %}
+                <ul>
+                    {% for error in form.last_name.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.email.label(class="form-control-label") }}
+                {{ form.email(class="form-control form-control-sm") }}
+                {% if form.email.errors %}
+                <ul>
+                    {% for error in form.email.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.username.label(class="form-control-label") }}
+                {{ form.username(class="form-control form-control-sm") }}
+                {% if form.username.errors %}
+                <ul>
+                    {% for error in form.username.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.active.label(class="form-control-label") }}
+                {{ form.active }}
+                {% if form.active.errors %}
+                <ul>
+                    {% for error in form.active.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.age.label(class="form-control-label") }}
+                {{ form.age(class="form-control form-control-sm") }}
+                {% if form.age.errors %}
+                <ul>
+                    {% for error in form.age.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.country.label(class="form-control-label") }}
+                {{ form.country(class="form-control form-control-sm") }}
+                {% if form.country.errors %}
+                <ul>
+                    {% for error in form.country.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.state.label(class="form-control-label") }}
+                {{ form.state(class="form-control form-control-sm") }}
+                {% if form.state.errors %}
+                <ul>
+                    {% for error in form.state.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.city.label(class="form-control-label") }}
+                {{ form.city(class="form-control form-control-sm") }}
+                {% if form.city.errors %}
+                <ul>
+                    {% for error in form.city.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.address.label(class="form-control-label") }}
+                {{ form.address(class="form-control form-control-sm") }}
+                {% if form.address.errors %}
+                <ul>
+                    {% for error in form.address.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.zip_code.label(class="form-control-label") }}
+                {{ form.zip_code(class="form-control form-control-sm") }}
+                {% if form.zip_code.errors %}
+                <ul>
+                    {% for error in form.zip_code.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+
+        </fieldset>
+    </form>
+</div>
+{% endblock content %}

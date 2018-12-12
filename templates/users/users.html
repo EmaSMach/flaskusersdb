@@ -1,0 +1,212 @@
+{% extends 'base.html' %}
+
+{% block title %}Users{% endblock title %}
+
+{% block content %}
+
+{% if form %}
+
+<h1 class="mt-3">Add a new user</h1>
+
+<div class="col-sm-5 m-auto justify-center">
+    <form action="" method="POST">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <p>{{ message }}</p>
+            {% endif %}
+            {% endwith %}
+            <legend class="border-bottom mb-4">Submit a new user</legend>
+            <div class="form-group">
+                {{ form.first_name.label(class="form-control-label") }}
+                {{ form.first_name(class="form-control form-control-sm") }}
+                {% if form.first_name.errors %}
+                <ul>
+                    {% for error in form.first_name.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.last_name.label(class="form-control-label") }}
+                {{ form.last_name(class="form-control form-control-sm") }}
+                {% if form.last_name.errors %}
+                <ul>
+                    {% for error in form.last_name.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.email.label(class="form-control-label") }}
+                {{ form.email(class="form-control form-control-sm") }}
+                {% if form.email.errors %}
+                <ul>
+                    {% for error in form.email.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.active.label(class="form-control-label") }}
+                {{ form.active }}
+                {% if form.active.errors %}
+                <ul>
+                    {% for error in form.active.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.age.label(class="form-control-label") }}
+                {{ form.age(class="form-control form-control-sm") }}
+                {% if form.age.errors %}
+                <ul>
+                    {% for error in form.age.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.gender.label(class="form-control-label") }}
+                {{ form.gender(class="form-control form-control-sm") }}
+                {% if form.gender.errors %}
+                <ul>
+                    {% for error in form.gender.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.country.label(class="form-control-label") }}
+                {{ form.country(class="form-control form-control-sm") }}
+                {% if form.country.errors %}
+                <ul>
+                    {% for error in form.country.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.state.label(class="form-control-label") }}
+                {{ form.state(class="form-control form-control-sm") }}
+                {% if form.state.errors %}
+                <ul>
+                    {% for error in form.state.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.city.label(class="form-control-label") }}
+                {{ form.city(class="form-control form-control-sm") }}
+                {% if form.city.errors %}
+                <ul>
+                    {% for error in form.city.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.address.label(class="form-control-label") }}
+                {{ form.address(class="form-control form-control-sm") }}
+                {% if form.address.errors %}
+                <ul>
+                    {% for error in form.address.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.zip_code.label(class="form-control-label") }}
+                {{ form.zip_code(class="form-control form-control-sm") }}
+                {% if form.zip_code.errors %}
+                <ul>
+                    {% for error in form.zip_code.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.timezone.label(class="form-control-label") }}
+                {{ form.timezone(class="form-control form-control-sm") }}
+                {% if form.timezone.errors %}
+                <ul>
+                    {% for error in form.timezone.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+
+        </fieldset>
+    </form>
+</div>
+
+{% else %}
+
+<h1 class="mt-3">Users</h1>
+<form class="form-group" method="POST">
+    <input class="btn btn-outline-info" id="submit" name="submit" type="submit" value="Add User">
+</form>
+<table class="table table-dark">
+    <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">First Name</th>
+          <th scope="col">Last Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Active</th>
+          <th scope="col">Age</th>
+            <th scope="col">Gender</th>
+          <th scope="col">Country</th>
+          <th scope="col">State</th>
+          <th scope="col">City</th>
+          <th scope="col">Address</th>
+          <th scope="col">Zip Code</th>
+          <th scope="col">Time Zone</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        {% for user in users %}
+
+            <tr>
+              <th scope="row">{{ user.id }}</th>
+              <td>{{ user.first_name }}</td>
+              <td>{{ user.last_name }}</td>
+              <td>{{ user.email }}</td>
+               <td>{{ user.active }}</td>
+              <td>{{ user.age }}</td>
+                <td>{{ user.gender }}</td>
+              <td>{{ user.country }}</td>
+              <td>{{ user.state }}</td>
+              <td>{{ user.city }}</td>
+              <td>{{ user.address }}</td>
+              <td>{{ user.zip_code }}</td>
+              <td>{{ user.timezone }}</td>
+            </tr>
+        {% endfor %}
+
+    </tbody>
+
+</table>
+
+{% endif %}
+
+{% endblock content %}
