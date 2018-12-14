@@ -3,7 +3,6 @@ from __future__ import unicode_literals
 
 from database import Base
 from database import db_session
-from sqlalchemy import Column, String
 
 from utils.validators import validate_email
 
@@ -82,13 +81,4 @@ class User(Base):
         return "{} {}".format(self.first_name, self.last_name)
 
 
-if __name__ == '__main__':
-    new_user = User(first_name='Lucas', last_name='Sandoval', address_id=1, email='loco@gmial.com',
-                    active=True)
-    
-    db_session.add(new_user)
-    db_session.commit()
-    user = db_session.query(User).get(1)
-    users = db_session.query(User).all()[-1]
-    print user.gender
 
